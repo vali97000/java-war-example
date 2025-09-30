@@ -11,10 +11,10 @@ pipeline {
         }
         stage('SonarQube analysis') {
             environment {
-                scannerHome = tool 'saidemyo-sonar-scanner'
+                scannerHome = tool 'sq-schanner'
             }
             steps {
-                withSonarQubeEnv('saidemyo-sonarqube-server') {
+                withSonarQubeEnv('sq-connection-jenkins') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
